@@ -1,0 +1,120 @@
+﻿@model DemoMvc.Models.Validations
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using(Html.BeginForm("GetBack","Validation"))
+{
+<table>
+    <tr>
+        <td>
+            Firstname
+        </td>
+        <td>
+            @Html.TextBoxFor(a => a.FirstName)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.FirstName, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Lastname
+        </td>
+        <td>
+            @Html.TextBoxFor(a => a.LastName)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.LastName, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Salary
+        </td>
+        <td>
+            @Html.TextBoxFor(a => a.Salary)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.Salary, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PanCard
+        </td>
+        <td>
+            @Html.TextBoxFor(a => a.PanCard)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.PanCard, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Password
+        </td>
+        <td>
+            @Html.PasswordFor(a => a.Password)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.Password, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Confirm Password
+        </td>
+        <td>
+            @Html.PasswordFor(a => a.ConfirmPassword)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.ConfirmPassword, "", new { @class = "text-danger" })
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            Phone
+        </td>
+        <td>
+            @Html.PasswordFor(a => a.Phone)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.Phone, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Emaild-Id
+        </td>
+        <td>
+            @Html.PasswordFor(a => a.Email)
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.Email, "", new { @class = "text-danger" })
+        </td>
+
+
+    </tr>
+    <tr>
+        <td>
+            Date-of-Joining
+        </td>
+        <td>
+            @Html.TextBoxFor(a => a.Doj ,new { type = "date" })
+        </td>
+        <td>
+            @Html.ValidationMessageFor(a => a.Doj, "", new { @class = "text-danger" })
+        </td>
+
+
+    </tr>
+    <tr>
+        <td><input type="submit" name="submit"></td>
+    </tr>
+</table>
+}

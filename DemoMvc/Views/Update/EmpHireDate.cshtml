@@ -1,0 +1,75 @@
+﻿@model IEnumerable<DemoMvc.Models.EMPDATA>
+@{
+    ViewBag.Title = "EmpHireDate";
+}
+
+<h2>EmpHireDate</h2>
+
+@using (Html.BeginForm("EmpHdDate", "Update"))
+{
+<table>
+    <tr>
+        <td> Start Date</td>
+        <td>@Html.RadioButton("rdbHdDeptno", "hiredate", new { onclick = "func1();" })Hiredate</td>
+        <td>@Html.TextBox("txtStartDate", Request["txtStartDate"])</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td> End Date </td>
+        <td>@Html.TextBox("txtEndDate", Request["txtEndDate"], new { @placeholder = "End Date", @disabled = "true" })</td>
+    </tr>
+    <tr>
+        <td>@Html.RadioButton("rdbHdDeptno", "deptno", new { onclick = "func2();" })Dept Name</td>
+        <td>@Html.DropDownList("ddlDeptno", new SelectList(ViewBag.DL, "Deptno", "Dname", ViewBag.Dept), "--Select--", new { @disabled = "true" })</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><input id="Submit1" type="submit" value="Submit" /></td>
+    </tr>
+</table>
+}
+<script>
+    function func1()
+    {
+        document.getElementById("txtStartDate").disabled = false;
+        document.getElementById("txtEndDate").disabled = false;
+         document.getElementById("ddlDeptno").disabled = true;
+    }
+    function func2()
+    {
+        document.getElementById("ddlDeptno").disabled = false;
+        document.getElementById("txtStartDate").disabled = true;
+        document.getElementById("txtEndDate").disabled = true;
+    }
+</script>
+
+@if (Model != null)
+{
+<table border="1">
+    <tr>
+        <td>Empno</td>
+        <td>Ename</td>
+        <td>Job</td>
+        <td>Manager</td>
+        <td>Hiredate</td>
+        <td>Salary</td>
+        <td>Comm</td>
+        <td>Deptno</td>
+    </tr>
+    @foreach (var E in Model)
+    {
+        <tr>
+            <td>@E.EMPNO</td> 
+            <td>@E.ENAME</td>
+            <td>@E.JOB</td>
+            <td>@E.MGR</td>
+            <td>@E.HIREDATE</td>
+            <td>@E.SAL</td>
+            <td>@E.COMM</td>
+            <td>@E.DEPTNO</td>
+        </tr>
+    }
+</table>
+}

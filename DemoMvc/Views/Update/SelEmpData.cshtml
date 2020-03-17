@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DemoMvc.Models.EMPDATA>
+@{
+    ViewBag.Title = "SelEmpData";
+}
+
+<h2>SelEmpData</h2>
+
+@using (Html.BeginForm("GetSelEmpData", "Update"))
+{
+    if (Model != null)
+    {
+        <table border="1" style="text-align:center;">
+            <tr>
+                <th>Select</th>
+                <th>Empno</th>
+                <th>Ename</th>
+                <th>Job</th>
+                <th>Manager</th>
+                <th>Hiredate</th>
+                <th>Sal</th>
+                <th>Comm</th>
+                <th>Deptno</th>
+            </tr>
+            @foreach (var row in Model)
+            {
+                <tr>
+                    <td>@Html.CheckBox("CheckBox", new { @value = row.EMPNO })</td>
+                    <td>@row.EMPNO</td>
+                    <td>@row.ENAME</td>
+                    <td>@row.JOB</td>
+                    <td>@row.MGR</td>
+                    <td>@row.HIREDATE</td>
+                    <td>@row.SAL</td>
+                    <td>@row.COMM</td>
+                    <td>@row.DEPTNO</td>
+                </tr>
+            }
+
+        </table>
+        <input id="Submit1" type="submit" value="Submit" />
+    }
+}
